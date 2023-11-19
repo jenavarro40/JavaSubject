@@ -1,0 +1,34 @@
+package evanto;
+
+import java.util.Scanner;
+
+public class Evento {
+
+	public static void main(String[] args) {
+		Mensaje_Inicial mensaje=new Mensaje_Inicial();
+		mensaje.mensajeinicial();
+		boolean exit=true;
+		while (exit) {
+			mensaje.inputdata();
+			double person=mensaje.getPersons();
+			int value=mensaje.getInput();
+			if(value>50) System.out.println("evento Grande");
+			else System.out.println("evento pequeño");
+			double cost=mensaje.calculus(value, person);
+			System.out.println("El costo por persona es: "+person);
+			System.out.println("Evento para: "+value);
+			System.out.println("El costo total es: "+cost);
+			Scanner scan=new Scanner(System.in);
+			System.out.println("desea continuar?");
+			String yesornot=scan.nextLine();
+			if (yesornot=="no") exit=false;
+	
+		}
+		
+		
+		
+
+	}
+	
+
+}

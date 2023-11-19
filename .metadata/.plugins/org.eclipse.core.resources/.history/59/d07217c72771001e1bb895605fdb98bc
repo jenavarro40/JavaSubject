@@ -1,0 +1,12 @@
+
+public class Asgn02 {
+
+	public static void main(String[] args) {
+		Question ques=new Question();
+		ques.readNumberArray();
+		String [][] questions=new String[ques.getNumberQuestion()][ques.getNumberLinesPerQuestion()];
+		questions=ques.Questions();
+
+	}
+
+}

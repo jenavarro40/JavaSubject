@@ -1,0 +1,6 @@
+package snippet;
+
+public class Snippet {
+	Please choose (c)reate a question, (p)review or (e)xit >> c
+}
+

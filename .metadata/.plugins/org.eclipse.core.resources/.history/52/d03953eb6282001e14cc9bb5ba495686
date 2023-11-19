@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		ArrayList<String> options= new ArrayList<>();
+		options.add("Sara");
+		options.add("Javier");
+		options.add("Enrique");
+		MCQuestion ques =new MCQuestion("Hola",options,10.5);
+		System.out.println(ques.toString());
+		TFQuestion ques1 =new TFQuestion("Hola",true,10.5);
+		System.out.println(ques1.toString());
+		
+	}
+
+}

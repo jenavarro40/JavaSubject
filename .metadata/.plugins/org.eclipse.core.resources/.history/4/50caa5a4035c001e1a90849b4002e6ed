@@ -1,0 +1,69 @@
+
+public class Triangle {
+
+	static int Height;
+	static int Area;
+	public Triangle() {
+		setHeight(5);
+	}
+	public Triangle(int Height) {
+		setHeight(Height);
+	}
+	
+	
+
+
+
+
+	/**
+	 * @return the height
+	 */
+	public static int getHeight() {
+		return Height;
+	}
+
+
+
+
+	/**
+	 * @param height the height to set
+	 */
+	public static void setHeight(int height) {
+		Height = height;
+	}
+
+
+
+
+	/**
+	 * @return the area
+	 */
+	public static int getArea() {
+		return Area;
+	}
+
+
+
+
+	/**
+	 * @param area the area to set
+	 */
+	public static void setArea(int area) {
+		Area = area;
+	}
+
+
+
+
+	public static void print() {
+		Area=0;
+		for (int i = 0; i < Height; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("#");
+				Area = Area + 1;
+			}
+			System.out.println();
+		}
+
+	}
+}

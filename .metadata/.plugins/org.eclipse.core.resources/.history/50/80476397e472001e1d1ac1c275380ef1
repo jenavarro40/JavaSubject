@@ -1,0 +1,63 @@
+
+public class Variables {
+	
+	private String QuestionStorage;
+
+	private int Answer;
+
+
+	public Variables() {
+
+	}
+	
+	public Variables(String QuestionStorage) {
+		
+		this.QuestionStorage=QuestionStorage;
+
+
+	}
+	
+	public Variables(int Answer) {
+		
+		this.Answer=Answer;
+	}
+
+	/**
+	 * @return the questionStorage
+	 */
+	public String getQuestionStorage() {
+		return QuestionStorage;
+	}
+
+	/**
+	 * @param questionStorage the questionStorage to set
+	 */
+	public void setQuestionStorage(String QuestionStorage) {
+		this.QuestionStorage = QuestionStorage;
+	}
+
+
+	/**
+	 * @return the answer
+	 */
+	public int getAnswer() {
+		return Answer;
+	}
+
+	/**
+	 * @param answer the answer to set
+	 */
+	public void setAnswer(int Answer) {
+		this.Answer = Answer;
+	}
+	
+	 @Override
+	    public String toString() {
+		 if(QuestionStorage==null)
+	        return QuestionStorage ;
+		 else
+			 return Answer;
+	    }
+
+
+}

@@ -1,0 +1,71 @@
+import java.lang.StackWalker.Option;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		Connection connection = null; 
+		Statement statement = null; 
+
+		
+		try {
+			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+		} catch (ClassNotFoundException cnfex) {   
+			System.out.println("Problem in loading or "+"registering MS Access JDBC driver");   
+			cnfex.printStackTrace();
+		}
+		
+		String msAccDB = "Question.accdb";   
+		String dbURL = "jdbc:ucanaccess://" +msAccDB; 
+		try {
+			connection =DriverManager.getConnection(dbURL);
+			statement = connection.createStatement(); 
+			String insertSQL ="DELETE FROM QUESTION" ;  
+			System.out.println(insertSQL);
+			statement.executeUpdate(insertSQL); 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 try {
+			statement.close();           
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}       
+		String choose="a";
+		while (!choose.equalsIgnoreCase("e")) {
+			System.out.print("Please choose (c)reate a question, (p)review or (e)xit >> ");
+			InsertQuestion InsertQuest = new InsertQuestion();
+			choose = scan.next();			
+			switch (choose) {
+			case "c":
+				InsertQuest.insertQuestions();
+				break;
+			case "C":
+				InsertQuest.insertQuestions();
+				break;
+			case "p":
+				System.out.println("putas2");
+				break;
+			case "P":
+				System.out.println("putas2");
+				break;
+
+			}
+		}
+		scan.close();
+
+	}
+
+}

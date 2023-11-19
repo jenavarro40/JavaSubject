@@ -1,0 +1,97 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Question {
+	
+	private int QuestionAndAnswerNumber;
+	private int NumberOptions;
+
+	
+	/**
+	 * @return the questionAndAnswerNumber
+	 */
+	public int getQuestionAndAnswerNumber() {
+		return QuestionAndAnswerNumber;
+	}
+
+
+
+
+
+	/**
+	 * @param questionAndAnswerNumber the questionAndAnswerNumber to set
+	 */
+	public void setQuestionAndAnswerNumber(int questionAndAnswerNumber) {
+		QuestionAndAnswerNumber = questionAndAnswerNumber;
+	}
+
+
+
+
+
+	/**
+	 * @return the numberOptions
+	 */
+	public int getNumberOptions() {
+		return NumberOptions;
+	}
+
+
+
+
+
+	/**
+	 * @param numberOptions the numberOptions to set
+	 */
+	public void setNumberOptions(int numberOptions) {
+		NumberOptions = numberOptions;
+	}
+
+
+
+
+
+	public void StoreData() {
+		Variables [] StoreQaA=new Variables[QuestionAndAnswerNumber];
+		Variables [] Options=new Variables[NumberOptions];
+		String path = "Files\\AstrologyQuiz.txt";
+		File file = new File(path);
+		try {
+			Scanner scan =new Scanner(file);
+			scan.nextLine();
+			String pivot;
+			String pivot1="";
+			int answer=-1;
+			for(int i=0;i<StoreQaA.length;i++) {
+				char Letter = 'A';
+				for(int j=0;j<Options.length;j++) {
+					pivot=scan.nextLine();
+					if(j==0) pivot1= "Question " + (i + 1) + ": " + pivot;
+					else {
+						if (pivot.charAt(0) == '*') {							
+							pivot=pivot.substring(1);
+							answer=j;
+						}
+						pivot=Letter + ": " + pivot;
+						Variables option=new Variables(pivot);
+						Options[j]=option;
+						Letter++;
+					}					
+				}
+				Variables QaA=new Variables(pivot1,answer);
+				StoreQaA[i]=QaA;
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i=0;i<Options.length;i++) {
+			System.out.println(":"+ Options[i].toString());
+		}
+
+		
+	}
+}

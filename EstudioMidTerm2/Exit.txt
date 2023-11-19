@@ -1,0 +1,7 @@
+files1.txt 2
+files2.txt 2
+file.txt 2
+Hello.doc 2
+Erase.txt 2
+Delete.txt 2
+archivosnombres.txt 2

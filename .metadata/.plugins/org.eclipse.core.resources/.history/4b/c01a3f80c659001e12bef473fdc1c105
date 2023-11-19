@@ -1,0 +1,84 @@
+import java.util.Random;
+
+public class CodeMaker {
+
+	// Initialize el random
+	Random random=new Random();
+	char[] SecretCodearray = new char[4];
+
+	// A member variable of Code to store the secret code
+	private Code secretCode;
+	// getter of secretCode
+
+	public Code getSecretCode() {
+		
+		return secretCode;
+
+	}
+
+	// setter of secretCode
+	public void setSecretCode(Code secretCode) {
+		this.secretCode = secretCode;
+
+	}
+
+	// default constructor
+	public CodeMaker() {
+	}
+
+	// this method generate the secret code and store the secret code
+	// in the member variable secretCode. The secret code generated will
+	// not have duplicated pegs. For example, it is not allowed to have
+	// the secret code "R P P O" because "P" is a duplicate.
+	public void makeSecretCode() {
+
+		int[] VarTemp = new int[4];
+		int i_while = 0;
+		int varrandom = 0;
+
+		while (i_while < VarTemp.length) {
+			varrandom = random.nextInt(6);
+			while (!check(VarTemp, i_while, varrandom)) {
+				VarTemp[i_while] = varrandom;
+				i_while++;
+			}
+
+		}
+		for (int i = 0; i < SecretCodearray.length; i++) {
+
+			switch (VarTemp[i]) { // I generate like random number but with this all numbers change for one color
+			case 0:
+				SecretCodearray[i] = 'R';
+				break;
+			case 1:
+				SecretCodearray[i] = 'P';
+				break;
+			case 2:
+				SecretCodearray[i] = 'O';
+				break;
+			case 3:
+				SecretCodearray[i] = 'Y';
+				break;
+			case 4:
+				SecretCodearray[i] = 'G';
+				break;
+			case 5:
+				SecretCodearray[i] = 'B';
+				break;
+			}
+		}
+		Code secretCode=new Code(SecretCodearray[0],SecretCodearray[1],SecretCodearray[2],SecretCodearray[3]);
+		
+
+	}
+
+	public boolean check(int[] data, int numberarray, int numbercomparison) {
+		boolean validation = true;
+		for (int i = 0; i < numberarray; i++) {
+			if (numbercomparison == data[i])
+				validation = false;
+		}
+		return validation;
+	}
+
+}

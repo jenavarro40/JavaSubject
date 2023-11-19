@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+
+public class TFQuestion {
+	private String questionText;
+	private Double point;
+	private boolean answer;
+	
+	public TFQuestion() {
+	}
+	public TFQuestion(String questionText, boolean answer, double point) {
+		this.questionText=questionText;
+		this.answer=answer;
+		this.point=point;
+	}
+	
+	/**
+	 * @return the questionText
+	 */
+	public String getQuestionText() {
+		return questionText;
+	}
+	/**
+	 * @param questionText the questionText to set
+	 */
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
+	}
+	/**
+	 * @return the point
+	 */
+	public Double getPoint() {
+		return point;
+	}
+	/**
+	 * @param point the point to set
+	 */
+	public void setPoint(Double point) {
+		this.point = point;
+	}
+	/**
+	 * @return the answer
+	 */
+	public boolean isAnswer() {
+		return answer;
+	}
+	/**
+	 * @param answer the answer to set
+	 */
+	public void setAnswer(boolean answer) {
+		this.answer = answer;
+	}
+	@Override
+	public String toString() {
+		return questionText+","+ answer+","+ point;
+	}
+	
+	
+}

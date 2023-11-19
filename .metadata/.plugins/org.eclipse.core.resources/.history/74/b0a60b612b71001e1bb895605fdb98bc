@@ -1,0 +1,16 @@
+
+public class Asgn02 {
+
+	public static void main(String[] args) {
+		Question ques=new Question();
+		ques.readNumberArray();
+		Object [] QuestionExit=ques.StoreQuestions();
+		String [][] questions=new String[ques.getNumberQuestion()][ques.getNumberLinesPerQuestion()];
+		int [] answer=new int[ques.getNumberLinesPerQuestion()];
+		questions=(String[][])QuestionExit[0];
+		answer=(int[])QuestionExit[1];
+		ques.resultanswer(questions, answer);
+
+	}
+
+}

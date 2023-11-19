@@ -1,0 +1,50 @@
+
+import java.util.Scanner;
+
+public class Question {
+
+	private String QuestionStorage;
+	private String OptionStorage;
+	private int Answer;
+	
+	
+	/**
+	 * @return the questionStorage
+	 */
+	public String getQuestionStorage() {
+		return QuestionStorage;
+	}
+	/**
+	 * @param questionStorage the questionStorage to set
+	 */
+	public void setQuestionStorage(String questionStorage) {
+		QuestionStorage = questionStorage;
+	}
+	/**
+	 * @return the optionStorage
+	 */
+	public String getOptionStorage() {
+		return OptionStorage;
+	}
+	/**
+	 * @param optionStorage the optionStorage to set
+	 */
+	public void setOptionStorage(String optionStorage) {
+		OptionStorage = optionStorage;
+	}
+	/**
+	 * @return the answer
+	 */
+	public int getAnswer() {
+		return Answer;
+	}
+	/**
+	 * @param answer the answer to set
+	 */
+	public void setAnswer(int answer) {
+		Answer = answer;
+	}
+
+	
+}
+	

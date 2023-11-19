@@ -1,0 +1,56 @@
+
+public class Triangle {
+
+	static int Height;
+	static int Area;
+
+	public Triangle(int Height) {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Triangle() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static int getArea() {
+		return Area;
+	}
+
+	public static void setArea(int area) {
+		Area = area;
+	}
+
+	public static int getHeight() {
+		return Height;
+	}
+
+	public static void setHeight(int Height) {
+		Triangle.Height = Height;
+	}
+
+	public static void Triangle() {
+
+		Area=Area;
+		Height=Height;
+
+	}
+	
+
+	public static void Triangle(int Heights) {
+
+		Area=Area;
+		Height=Heights;
+	
+
+	}
+
+	public static void print() {
+		for (int i = 0; i < Height; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.println("#");
+				Area = Area + 1;
+			}
+		}
+
+	}
+}

@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class InsertQuestion {
+	private MCQuestion MCoptions;
+	private TFQuestion TCoptions;
+
+	
+	/**
+	 * @return the mCoptions
+	 */
+	public MCQuestion getMCoptions() {
+		return MCoptions;
+	}
+
+
+	/**
+	 * @param mCoptions the mCoptions to set
+	 */
+	public void setMCoptions(MCQuestion mCoptions) {
+		MCoptions = mCoptions;
+	}
+
+
+	/**
+	 * @return the tCoptions
+	 */
+	public TFQuestion getTCoptions() {
+		return TCoptions;
+	}
+
+
+	/**
+	 * @param tCoptions the tCoptions to set
+	 */
+	public void setTCoptions(TFQuestion tCoptions) {
+		TCoptions = tCoptions;
+	}
+
+
+	public void insertQuestions() {
+		Scanner scan=new Scanner(System.in);
+		System.out.print("Enter the type of question (MC or TF) >>");
+		String chooseQuestion=scan.next();
+		
+	}
+
+}

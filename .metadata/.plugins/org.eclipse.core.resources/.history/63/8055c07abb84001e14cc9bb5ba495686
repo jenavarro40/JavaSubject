@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class InsertAndWrite {
+	public void MCorTF() {
+		Scanner scan=new Scanner(System.in);
+		InsertQuestion InsertQuest = new InsertQuestion();
+		System.out.print("Enter the type of question (MC or TF) >>");
+		String chooseQuestion = scan.nextLine();
+		if (chooseQuestion.equalsIgnoreCase("MC")) 
+			{
+			MCQuestion option1=InsertQuest.insertMC();
+			TFQuestion option2=new TFQuestion("0",false,3.0);
+			InsertQuest.writedatabase("MC",option1,option2);
+			}
+		else if (chooseQuestion.equalsIgnoreCase("TF")) 
+		{
+			ArrayList<String> cero=new ArrayList<>();
+			cero.add("");
+			MCQuestion option1=new MCQuestion("0",cero,3.0);
+			TFQuestion option2=InsertQuest.insertTF();
+			InsertQuest.writedatabase("TF",option1,option2);
+		}
+		else System.out.print("Enter error try again");
+
+	}
+
+}

@@ -1,0 +1,106 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Question {
+	
+	private int QuestionAndAnswerNumber;
+	private int NumberOptions;
+
+	
+	/**
+	 * @return the questionAndAnswerNumber
+	 */
+	public int getQuestionAndAnswerNumber() {
+		return QuestionAndAnswerNumber;
+	}
+
+
+
+
+
+	/**
+	 * @param questionAndAnswerNumber the questionAndAnswerNumber to set
+	 */
+	public void setQuestionAndAnswerNumber(int questionAndAnswerNumber) {
+		QuestionAndAnswerNumber = questionAndAnswerNumber;
+	}
+
+
+
+
+
+	/**
+	 * @return the numberOptions
+	 */
+	public int getNumberOptions() {
+		return NumberOptions;
+	}
+
+
+
+
+
+	/**
+	 * @param numberOptions the numberOptions to set
+	 */
+	public void setNumberOptions(int numberOptions) {
+		NumberOptions = numberOptions;
+	}
+
+
+
+
+
+	public void StoreData() {
+		Variables [][] StoreQaA=new Variables[NumberOptions][QuestionAndAnswerNumber];		
+		Variables [] Answers=new Variables[QuestionAndAnswerNumber];
+		String path = "Files\\AstrologyQuiz.txt";
+		File file = new File(path);
+		try {
+			Scanner scan =new Scanner(file);
+			scan.nextLine();
+			String pivot;
+			for(int i=0;i<StoreQaA.length;i++) {
+				char Letter = 'A';
+				for(int j=0;j<StoreQaA[1].length-1;j++) {
+					pivot=scan.nextLine();
+					
+					if(j==0) {
+						pivot= "Question " + (i + 1) + ": " + pivot;
+						Variables store=new Variables(pivot);
+						StoreQaA[i][j]=store;
+					}
+					else {
+						if (pivot.charAt(0) == '*') {							
+							pivot=pivot.substring(1);
+							answer=j;
+							Variables option=new Variables(answer);
+							Answers[i]=option;									
+						}
+						pivot=Letter + ": " + pivot;
+						Variables store=new Variables(pivot);
+						StoreQaA[i][j]=store;
+						Letter++;
+						
+					}					
+				}
+		
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i=0;i<StoreQaA.length;i++) {
+			System.out.println(StoreQaA.length);
+		
+			for(int j=0;j<StoreQaA[i].length;j++) {
+				System.out.println(StoreQaA[i][j]);
+			}
+		}
+
+		
+	}
+}

@@ -1,0 +1,11 @@
+10
+Bloemfontein##South Africa##1395
+Beijing##China##63
+Kunming##China##1892
+Tokyo##Japan##17
+Calgary##Canada##1045
+Harare##Zimbabwe##1480
+Tallinn##Estonia##37
+Ottawa##Canada##70
+Sofia##Bulgaria##591
+Edmonton##Canada##645

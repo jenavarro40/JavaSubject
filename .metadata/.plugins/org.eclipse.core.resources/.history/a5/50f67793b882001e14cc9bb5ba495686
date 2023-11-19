@@ -1,0 +1,37 @@
+import java.lang.StackWalker.Option;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		String choose="a";
+		while (!choose.equalsIgnoreCase("e")) {
+			System.out.print("Please choose (c)reate a question, (p)review or (e)xit >> ");
+			InsertQuestion InsertQuest = new InsertQuestion();
+			choose = scan.next();			
+			switch (choose) {
+			case "c":
+				InsertQuest.insertQuestions();
+				break;
+			case "C":
+				InsertQuest.insertQuestions();
+				break;
+			case "p":
+				System.out.println("putas2");
+				break;
+			case "P":
+				System.out.println("putas2");
+				break;
+
+			}
+		}
+		scan.close();
+
+	}
+
+}

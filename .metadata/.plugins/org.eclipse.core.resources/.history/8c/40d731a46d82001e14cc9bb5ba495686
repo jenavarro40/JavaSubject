@@ -1,0 +1,15 @@
+import java.lang.StackWalker.Option;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		System.out.println("Please choose (c)reate a question, (p)review or (e)xit >> ");
+		Scanner scan =new Scanner(System.in);
+		String choosestring=scan.next();
+				
+	}
+
+}

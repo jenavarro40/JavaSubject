@@ -1,0 +1,22 @@
+import java.lang.StackWalker.Option;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		
+		MCQuestion addop=new MCQuestion();
+		addop.addOption("javier");
+		addop.addOption("Sara");
+		addop.addOption("Raul");
+1		ArrayList<String> prueba=new ArrayList<>();
+		prueba=addop.getOptions();
+		MCQuestion options=new MCQuestion("Que putas es esto",prueba,10.7);
+		System.out.println(options.toString());
+		
+
+		
+	}
+
+}

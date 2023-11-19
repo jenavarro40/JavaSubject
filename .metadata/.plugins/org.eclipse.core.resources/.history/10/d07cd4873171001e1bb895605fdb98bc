@@ -1,0 +1,144 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Question {
+
+	private int NumberLinesPerQuestion;
+	private int NumberQuestion;
+
+	/**
+	 * @return the numberLinesPerQuestion
+	 */
+	public int getNumberLinesPerQuestion() {
+		return NumberLinesPerQuestion;
+	}
+
+	/**
+	 * @param numberLinesPerQuestion the numberLinesPerQuestion to set
+	 */
+	public void setNumberLinesPerQuestion(int numberLinesPerQuestion) {
+		NumberLinesPerQuestion = numberLinesPerQuestion;
+	}
+
+	/**
+	 * @return the numberQuestion
+	 */
+	public int getNumberQuestion() {
+		return NumberQuestion;
+	}
+
+	/**
+	 * @param numberQuestion the numberQuestion to set
+	 */
+	public void setNumberQuestion(int numberQuestion) {
+		NumberQuestion = numberQuestion;
+	}
+
+	public void readNumberArray() {
+
+		String path = "src\\Files\\AstrologyQuiz.txt";
+		int NumberLines = 0;
+		File file = new File(path);
+		try {
+			Scanner scan = new Scanner(file);
+			while (scan.hasNextLine()) {
+				NumberLines++;
+				scan.nextLine();
+
+			}
+			scan.close();
+			scan = new Scanner(file);
+			NumberQuestion = Integer.parseInt(scan.nextLine());
+			NumberLinesPerQuestion = (NumberLines - 1) / NumberQuestion;
+			scan.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+
+	}
+
+	public Object[] StoreQuestions() {
+
+		String[][] Questions = new String[NumberQuestion][NumberLinesPerQuestion];
+		String path = "src\\Files\\AstrologyQuiz.txt";
+		File file = new File(path);
+		Scanner scan;
+		String Pivot;
+		int[] Answer = new int[Questions.length];
+		try {
+			scan = new Scanner(file);
+			scan.nextLine();
+			for (int i = 0; i < Questions.length; i++) {
+				char Letter = 'A';
+				for (int j = 0; j < Questions[i].length; j++) {
+					Pivot = scan.nextLine();
+					if (j == 0) {
+						Questions[i][j] = "Question " + (i + 1) + ": " + Pivot;
+					} else {
+
+						if (Pivot.charAt(0) == '*') {
+							Answer[i] = j;
+							Pivot = Pivot.substring(1);
+						}
+						Questions[i][j] = Letter + ": " + Pivot;
+						Letter++;
+					}
+//					System.out.println(""+ Questions[i][j]);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Object[] QuestionAndAnswer = new Object[2];
+		QuestionAndAnswer[0] = Questions;
+		QuestionAndAnswer[1] = Answer;
+		return QuestionAndAnswer;
+	}
+
+	public void resultanswer(String[][] question, int[] AnsweR) {
+		Scanner scan = new Scanner(System.in);
+		int grade=0;
+		System.out.println("Welcome to Astrology Test");
+		for (int i = 0; i < question.length; i++) {
+			for (int j = 0; j < question[i].length; j++) {
+				System.out.println(question[i][j]);
+			}
+			System.out.print("Enter your answer (A, B, C, or D): ");
+			String input = scan.next();
+			char LetterAnswer = input.charAt(0);
+			int NumberAnswer = 7;
+			char CorrectAnswer='A'-1;
+			switch (LetterAnswer) {
+			case 'A':
+				NumberAnswer = 1;
+				break;
+			case 'B':
+				NumberAnswer = 2;
+				break;
+			case 'C':
+				NumberAnswer = 3;
+				break;
+			case 'D':
+				NumberAnswer = 4;
+				break;
+			default:
+				System.out.println("Error in data");
+			}
+			if(AnsweR[i]==NumberAnswer) {
+				grade++;
+				System.out.println("Correct");
+			}
+			else {
+				char resultado=(char) (CorrectAnswer+AnsweR[i]);
+				System.out.println("Incorrect. The correct answer is "+resultado+" "+AnsweR[i]);
+			}
+
+		}
+		System.out.println("Total score: "+grade+" out of "+question.length);
+	}
+
+}

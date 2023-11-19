@@ -1,0 +1,78 @@
+import java.io.*;
+import java.util.Scanner;
+public class Question {
+	
+	private String FileRead;
+	private int NumberLinesPerQuestion;
+	/**
+	 * @return the numberLinesPerQuestion
+	 */
+	public int getNumberLinesPerQuestion() {
+		return NumberLinesPerQuestion;
+	}
+
+	/**
+	 * @param numberLinesPerQuestion the numberLinesPerQuestion to set
+	 */
+	public void setNumberLinesPerQuestion(int numberLinesPerQuestion) {
+		NumberLinesPerQuestion = numberLinesPerQuestion;
+	}
+
+	private int NumberQuestion;
+	
+	/**
+	 * @return the numberQuestion
+	 */
+	public int getNumberQuestion() {
+		return NumberQuestion;
+	}
+
+	/**
+	 * @param numberQuestion the numberQuestion to set
+	 */
+	public void setNumberQuestion(int numberQuestion) {
+		NumberQuestion = numberQuestion;
+	}
+
+	/**
+	 * @return the fileRead
+	 */
+	public String getFileRead() {
+		return FileRead;
+	}
+
+	/**
+	 * @param fileRead the fileRead to set
+	 */
+	public void setFileRead(String fileRead) {
+		FileRead = fileRead;
+	}
+
+	public void read() {		
+		String path="src\\Files\\AstrologyQuiz.txt";
+		int NumberLines=0;
+
+		File file=new File(path);
+		try {
+			Scanner scan = new Scanner(file);
+			while (scan.hasNextLine()) {
+				NumberLines++;
+				scan.nextLine();
+			
+			}
+			scan.close();
+			scan = new Scanner(file);
+			NumberQuestion=Integer.parseInt(scan.nextLine());
+			NumberLinesPerQuestion=(NumberLines-1)/NumberQuestion;
+			System.out.println(NumberQuestion+"***"+NumberLinesPerQuestion);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			
+	}
+
+	
+}

@@ -1,0 +1,19 @@
+import java.lang.StackWalker.Option;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		System.out.print("Please choose (c)reate a question, (p)review or (e)xit >> ");
+		Scanner scan =new Scanner(System.in);
+		String choose=scan.next();
+		switch (choose) {
+			case "c" || "C":System.out.println("putas");break;
+		}
+
+				
+	}
+
+}

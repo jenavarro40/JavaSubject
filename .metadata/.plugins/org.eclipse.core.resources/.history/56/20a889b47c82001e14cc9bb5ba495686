@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class InsertQuestion {
+	private MCQuestion MCoptions;
+	private TFQuestion TCoptions;
+
+	
+	/**
+	 * @return the mCoptions
+	 */
+	public MCQuestion getMCoptions() {
+		return MCoptions;
+	}
+
+
+	/**
+	 * @param mCoptions the mCoptions to set
+	 */
+	public void setMCoptions(MCQuestion mCoptions) {
+		MCoptions = mCoptions;
+	}
+
+
+	/**
+	 * @return the tCoptions
+	 */
+	public TFQuestion getTCoptions() {
+		return TCoptions;
+	}
+
+
+	/**
+	 * @param tCoptions the tCoptions to set
+	 */
+	public void setTCoptions(TFQuestion tCoptions) {
+		TCoptions = tCoptions;
+	}
+
+
+	public void insertQuestions() {
+		Scanner scan=new Scanner(System.in);
+		MCQuestion Questions=new MCQuestion();
+		System.out.print("Enter the type of question (MC or TF) >>");
+		String chooseQuestion=scan.next();
+		System.out.print("Enter the question text >>");
+		String Question=scan.next();
+		if(chooseQuestion.equalsIgnoreCase("MC")) {
+			char OptionLetter='A';
+			System.out.print("How many options?");
+			String numberoptions=scan.next();
+			int numberoption=Integer.parseInt(numberoptions);
+			for(int i=0;i<numberoption;i++) {
+				System.out.print("Enter Option "+OptionLetter+" (Start with * for correct answer) >>");
+				String answer=scan.next();
+				if(answer.charAt(0)=='*') {
+					String option=String.valueOf(OptionLetter);
+				}
+				Questions.addOption(answer);
+				OptionLetter++;
+				MCoptions = new MCQuestion(Question,Questions.getOptions(),10);
+				System.out.println(MCoptions.toString());
+				
+				
+			}			
+			
+		}				
+	}
+
+}

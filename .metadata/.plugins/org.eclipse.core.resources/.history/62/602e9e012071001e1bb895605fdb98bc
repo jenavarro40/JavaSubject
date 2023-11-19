@@ -1,0 +1,10 @@
+
+public class Asgn02 {
+
+	public static void main(String[] args) {
+		Question ques=new Question();
+		ques.read();
+
+	}
+
+}

@@ -1,0 +1,12 @@
+import java.lang.StackWalker.Option;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Asgn03 {
+
+	public static void main(String[] args) {
+		System.out.println("Please choose (c)reate a question, (p)review or (e)xit >> ");
+				
+	}
+
+}

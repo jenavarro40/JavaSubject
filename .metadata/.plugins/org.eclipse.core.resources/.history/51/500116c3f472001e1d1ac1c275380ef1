@@ -1,0 +1,81 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Asgn02 {
+
+	public static void main(String[] args) {
+		int NumberLinesPerQuestion = 0;
+		int NumberQuestion = 0;
+		String path = "Files\\AstrologyQuiz.txt";
+		int NumberLines = 0;
+		File file = new File(path);
+		try {
+			Scanner scan = new Scanner(file);
+			NumberQuestion = Integer.parseInt(scan.nextLine());
+			while (scan.hasNextLine()) {
+				NumberLines++;
+				scan.nextLine();
+			}
+			scan.close();
+			NumberLinesPerQuestion = NumberLines / NumberQuestion;
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// System.out.println(NumberQuestion);
+		Question question = new Question();
+		question.setNumberOptions(NumberLinesPerQuestion);
+		question.setQuestionAndAnswerNumber(NumberQuestion);
+
+		Variables[][] StoreQaA = new Variables[NumberLinesPerQuestion][NumberQuestion];
+		Variables[] Answered = new Variables[NumberQuestion];
+
+		Question ExitData = question.StoreData();
+		Answered = ExitData.getExitAnswer();
+		StoreQaA = ExitData.getExitStoreQaA();
+
+		Scanner scan = new Scanner(System.in);
+		int grade = 0;
+		System.out.println("Welcome to Astrology Test");
+
+		for (int i = 0; i < StoreQaA.length; i++) {
+			for (int j = 0; j < StoreQaA[1].length; j++) {
+				System.out.println(StoreQaA[i][j]);
+			}
+			System.out.print("Enter your answer (A, B, C, or D): ");
+			String input = scan.next();
+			char LetterAnswer = input.charAt(0);
+			int NumberAnswer = 7;
+			char CorrectAnswer = 'A' - 1;
+			switch (LetterAnswer) {
+			case 'A':
+				NumberAnswer = 1;
+				break;
+			case 'B':
+				NumberAnswer = 2;
+				break;
+			case 'C':
+				NumberAnswer = 3;
+				break;
+			case 'D':
+				NumberAnswer = 4;
+				break;
+			default:
+				System.out.println("Error in data");
+			}
+			int Value = Integer.parseInt(Answered[i].toString());
+			if (Value == NumberAnswer) {
+				grade++;
+				System.out.println("Correct.");
+			} else {
+				char result = (char) (CorrectAnswer + Value);
+				System.out.println("Incorrect. The correct answer is " + result);
+			}
+
+		
+			System.out.println("Total score: " + grade + " out of " + StoreQaA.length);
+		}
+	}
+}
