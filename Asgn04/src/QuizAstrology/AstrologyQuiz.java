@@ -1,14 +1,11 @@
-package QuizAstrology;
-
+package QuizAstrology;//Package Create for Doing WindowsBuilder
 import java.awt.Dimension;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -20,57 +17,58 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AstrologyQuiz extends JFrame {
-	private JPanel contentPane;
-	private JPanel panelfull;
-	private JPanel panel;
-	private JScrollPane scrollPane;
-	private JLabel labelName;
-	private JTextField txtName;
-	protected JLabel lblQestion1;
-	protected JRadioButton rdbtn1optionA;
-	protected JRadioButton rdbtn1optionB;
-	protected JRadioButton rdbtn1optionC;
-	protected JRadioButton rdbtn1optionD;
-	private JPanel panelRbtn1;
-	protected JLabel lblQestion2;
-	protected JRadioButton rdbtn2optionA;
-	protected JRadioButton rdbtn2optionB;
-	protected JRadioButton rdbtn2optionC;
-	protected JRadioButton rdbtn2optionD;
-	private JPanel panelRbtn2;
-	protected JLabel lblQestion3;
-	protected JRadioButton rdbtn3optionA;
-	protected JRadioButton rdbtn3optionB;
-	protected JRadioButton rdbtn3optionC;
-	protected JRadioButton rdbtn3optionD;
-	private JPanel panelRbtn3;
-	protected JLabel lblQestion4;
-	protected JRadioButton rdbtn4optionA;
-	protected JRadioButton rdbtn4optionB;
-	protected JRadioButton rdbtn4optionC;
-	protected JRadioButton rdbtn4optionD;
-	private JPanel panelRbtn4;
-	protected JLabel lblQestion5;
-	protected JRadioButton rdbtn5optionA;
-	protected JRadioButton rdbtn5optionB;
-	protected JRadioButton rdbtn5optionC;
-	protected JRadioButton rdbtn5optionD;
-	private JPanel panelRbtn5;
-	private final ButtonGroup buttonGroup1 = new ButtonGroup();
-	private final ButtonGroup buttonGroup2 = new ButtonGroup();
-	private final ButtonGroup buttonGroup3 = new ButtonGroup();
-	private final ButtonGroup buttonGroup4 = new ButtonGroup();
-	private final ButtonGroup buttonGroup5 = new ButtonGroup();
-	protected JRadioButton[] buttons;
-	protected JLabel[] lblQestion;
+public class AstrologyQuiz extends JFrame {//Main Class in this class initialize all Graphics Like RadioButtons,Buttons labels and text
+	private JPanel contentPane;  //Main Panel into this has all Graphics Structures
+	private JPanel panelfull; //Inside this panel was build for storage the elements for the Scroll  
+	private JPanel panel;// Panel to storage the Name Box
+	private JScrollPane scrollPane;//Scroll to have the capacity to show all questions
+	private JLabel labelName;// Label for Write Name
+	private JTextField txtName;// Text Box for Write the name
+	protected JLabel lblQestion1; // Label for Question
+	protected JRadioButton rdbtn1optionA;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn1optionB;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn1optionC;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn1optionD;//RadioButton for Write Options read for the file
+	private JPanel panelRbtn1;//In this panel have the RadioButon and label for questions and option
+	protected JLabel lblQestion2;// Label for Question
+	protected JRadioButton rdbtn2optionA;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn2optionB;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn2optionC;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn2optionD;//RadioButton for Write Options read for the file
+	private JPanel panelRbtn2;//In this panel have the RadioButon and label for questions and option
+	protected JLabel lblQestion3;// Label for Question
+	protected JRadioButton rdbtn3optionA;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn3optionB;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn3optionC;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn3optionD;//RadioButton for Write Options read for the file
+	private JPanel panelRbtn3;//In this panel have the RadioButon and label for questions and option
+	protected JLabel lblQestion4;// Label for Question
+	protected JRadioButton rdbtn4optionA;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn4optionB;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn4optionC;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn4optionD;//RadioButton for Write Options read for the file
+	private JPanel panelRbtn4;//In this panel have the RadioButon and label for questions and option
+	protected JLabel lblQestion5;// Label for Question
+	protected JRadioButton rdbtn5optionA;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn5optionB;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn5optionC;//RadioButton for Write Options read for the file
+	protected JRadioButton rdbtn5optionD;//RadioButton for Write Options read for the file
+	private JPanel panelRbtn5;//In this panel have the RadioButon and label for questions and option
+	private final ButtonGroup buttonGroup1 = new ButtonGroup();//This are the group of the Radio Buttons for have only one choose
+	private final ButtonGroup buttonGroup2 = new ButtonGroup();//This are the group of the Radio Buttons for have only one choose
+	private final ButtonGroup buttonGroup3 = new ButtonGroup();//This are the group of the Radio Buttons for have only one choose
+	private final ButtonGroup buttonGroup4 = new ButtonGroup();//This are the group of the Radio Buttons for have only one choose
+	private final ButtonGroup buttonGroup5 = new ButtonGroup();//This are the group of the Radio Buttons for have only one choose
+	protected JRadioButton[] buttons;// Group of the Radio Button for working in the diferent part of the program
+	protected JLabel[] lblQestion;// Group of the labels for insert the question for working in the diferent part of the program
 	//protected ButtonGroup[] rdbtngroup;
-	private JButton btnSend;
-	private ArrayList<Answer> Answer;
+	private JButton btnSend;//Variable for the button
+	private ArrayList<Answer> Answer;// Variable to get the information storage with question and answer
+	private ArrayList<Answer> Question;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) {// main program with the windows buider graphics interface
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -83,12 +81,12 @@ public class AstrologyQuiz extends JFrame {
 		});
 	}
 	
-	private void SetupComponents() {
+	private void SetupComponents() {//Methods to setup all components 
 		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 520);
-		setTitle("AstrologyQuiz");
+		setTitle("Astrology Quiz");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));		
 		setContentPane(contentPane);
@@ -111,7 +109,7 @@ public class AstrologyQuiz extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		labelName = new JLabel("Name");
+		labelName = new JLabel("Name:");
 		labelName.setBounds(10, 11, 46, 14);
 		panel.add(labelName);
 		
@@ -318,6 +316,7 @@ public class AstrologyQuiz extends JFrame {
 	        		JOptionPane.showMessageDialog(null,grade);
 	        		
 	                choose.clear();
+	                return;
 			}
 		});
 
@@ -327,7 +326,7 @@ public class AstrologyQuiz extends JFrame {
 		SetandGetData data =new SetandGetData();
 		data.initialhide(AstrologyQuiz.this);
 		Questions ques =new Questions();
-		ArrayList<Answer> Question = new ArrayList<>();
+		Question = new ArrayList<>();
 		Answer = new ArrayList<>();
 		Questions QaA;
 		QaA=ques.createquestions();
